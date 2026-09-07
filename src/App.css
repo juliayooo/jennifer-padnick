@@ -1,0 +1,277 @@
+:root {
+  --ink: #2D3142;
+  --paper: white;
+  --panel: #e7e2d3;
+  --purp: #754668;
+  --brass: #587D71;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Prata';
+  line-height: 1.8;
+
+}
+
+h1,
+h2 {
+  font-family: "Prata";
+  font-weight: 600;
+  margin: 0;
+  font-size: 1.6rem;
+}
+
+.page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+}
+
+.hero {
+  margin: 0 -24px 48px;
+  position: sticky;
+  top: 0;
+  background-color: var(--paper);
+  padding: 2rem;
+  z-index: 1000;
+
+}
+
+.hero-image {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: inline;
+}
+
+.hero-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  font-family: 'Pangolin';
+  font-size: 1.2rem;
+}
+
+.linkedin-link {
+  flex-shrink: 0;
+}
+
+.linkedin {
+  width: 60px;
+  height: 60px;
+  display: block;
+}
+.hero-text h1 {
+  font-size: 2.4rem;
+  color: var(--purp);
+}
+
+.tagline {
+  margin: 6px 0 0;
+  color: var(--brass);
+  /* font-style: italic; */
+}
+
+section {
+  margin-bottom: 48px;
+}
+
+section h2 {
+  font-size: 1.3rem;
+  color: var(--purp);
+  margin-bottom: 12px;
+}
+.about{
+   display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  align-items: center;
+}
+.headshot{
+  width: 75%;
+}
+.about p {
+  max-width: 60ch;
+}
+.property-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.property-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 18px;
+  border: 1px solid var(--panel);
+  border-radius: 4px;
+}
+
+.property-name {
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 600;
+}
+
+.property-location {
+  color: var(--brass);
+  font-size: 0.9rem;
+}
+
+.property-note {
+  color: #5a6156;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 640px) {
+  .property-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact {
+  border-top: 1px solid var(--panel);
+  padding-top: 20px;
+  color: #5a6156;
+  font-size: 0.9rem;
+}
+
+.contact p {
+  margin: 4px 0;
+}
+
+
+.bio-wrap {
+  position: relative;
+}
+
+.bio-trigger {
+  font: inherit;
+  color: var(--purp);
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--brass);
+  padding: 0;
+  cursor: pointer;
+}
+
+.bio-trigger:hover {
+  color: var(--brass);
+}
+
+.margin-photo {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  margin-left: 24px;
+  width: 200px;
+}
+
+.margin-photo img {
+  width: 100%;
+  border-radius: 4px;
+  display: block;
+}
+
+.margin-close {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1px solid var(--panel);
+  background: var(--paper);
+  cursor: pointer;
+  line-height: 1;
+}
+
+@media (max-width: 1000px) {
+  .margin-photo {
+    position: static;
+    margin: 16px 0 0;
+    width: 100%;
+    max-width: 280px;
+  }
+}
+.prata-regular {
+  font-family: "Prata", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.portfolio-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.portfolio-item {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 20px;
+  align-items: center;
+}
+
+.portfolio-info {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'Pangolin';
+}
+
+.portfolio-name {
+  font-family: 'Pangolin';
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.portfolio-type {
+  color: var(--brass);
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.portfolio-image {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.portfolio-image img {
+  flex: 1;
+  min-width: 0; /* prevents flex overflow with object-fit */
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .portfolio-item {
+    grid-template-columns: 1fr;
+  }
+
+  .portfolio-image img {
+    height: 240px;
+  }
+}
+.pangolin-regular {
+  font-family: "Pangolin", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
