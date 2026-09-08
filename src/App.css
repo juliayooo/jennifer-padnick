@@ -275,3 +275,9 @@ section h2 {
   font-weight: 400;
   font-style: normal;
 }
+.portfolio-image-loading {
+  flex: 1;
+  height: 260px;
+  background: var(--panel);
+  border-radius: 4px;
+}

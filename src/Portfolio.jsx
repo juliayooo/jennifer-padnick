@@ -1,3 +1,7 @@
+import { useState, useEffect } from 'react';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { storage } from './firebase';
+
 const portfolioItems = [
   {
     name: "10 JAY ST",
@@ -57,13 +61,13 @@ const portfolioItems = [
     name: "210 Pacific St",
     type: "Residential",
     description: "",
-    images: ["210PACIFICRES.png","210PACIFICRES.png"]
+    images: ["210PACIFICRES.png", "210PACIFICRES.png"]
   },
   {
     name: "850 St. Nicholas",
     type: "Residential",
     description: "",
-    images: ["850STNRES.png","850STNRES2.png"]
+    images: ["850STNRES.png", "850STNRES2.png"]
   },
   {
     name: "E 61st St",
@@ -71,7 +75,6 @@ const portfolioItems = [
     description: "",
     images: ["E61RES.png"]
   },
-
   {
     name: "14 Leroy",
     type: "Residential",
@@ -79,7 +82,25 @@ const portfolioItems = [
     images: ["14LEROYRES2.png", "14LEROYRES.png"]
   }
 ];
+
 export default function Portfolio() {
+  const [imageUrls, setImageUrls] = useState({});
+
+useEffect(() => {
+  portfolioItems.forEach((item) => {
+    item.images.forEach((filename) => {
+      const imageRef = ref(storage, `assets/${filename}`);
+      getDownloadURL(imageRef)
+        .then((url) => {
+          setImageUrls((prev) => ({ ...prev, [filename]: url }));
+        })
+        .catch((err) => {
+          console.error(`Failed to load ${filename}:`, err);
+        });
+    });
+  });
+}, []);
+
   return (
     <section className="portfolio">
       <h2>Portfolio</h2>
@@ -91,8 +112,16 @@ export default function Portfolio() {
               <p className="portfolio-type">{item.type}</p>
             </div>
             <div className="portfolio-image">
-              {item.images.map((src, i) => (
-                <img key={i} src={src} alt={`${item.name} photo ${i + 1}`} />
+              {item.images.map((filename, i) => (
+                imageUrls[filename] ? (
+                  <img
+                    key={i}
+                    src={imageUrls[filename]}
+                    alt={`${item.name} photo ${i + 1}`}
+                  />
+                ) : (
+                  <div key={i} className="portfolio-image-loading" />
+                )
               ))}
             </div>
           </div>
