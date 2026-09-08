@@ -49,19 +49,19 @@ const portfolioItems = [
     name: "161 W 75th St",
     type: "Residential",
     description: "",
-    images: ["161W75RES.png"]
+    images: ["161W75RES.jpg"]
   },
   {
     name: "200 W 79th St",
     type: "Residential",
     description: "",
-    images: ["200W79RES.png"]
+    images: ["200W79RES.jpg"]
   },
   {
     name: "210 Pacific St",
     type: "Residential",
     description: "",
-    images: ["210PACIFICRES.png", "210PACIFICRES.png"]
+    images: ["210PACIFICRES.png"]
   },
   {
     name: "850 St. Nicholas",
@@ -79,7 +79,7 @@ const portfolioItems = [
     name: "14 Leroy",
     type: "Residential",
     description: "",
-    images: ["14LEROYRES2.png", "14LEROYRES.png"]
+    images: ["14LEROYRES2.jpg", "14LEROYRES.png"]
   }
 ];
 
