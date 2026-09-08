@@ -41,9 +41,9 @@ const properties = [
 ]
 
 const marginPhotos = {
-  sons: { src: '/images/ELAN.jpg', alt: 'Jennifer with her two sons' },
-  dog: { src: '/images/luna.jpg', alt: 'The family dog' },
-  garden: { src: '/images/yoga-mock.jpg', alt: 'Hiking and gardening' },
+  sons: { src: `${import.meta.env.BASE_URL}images/ELAN.JPG`, alt: 'Jennifer with her two sons' },
+  dog: { src: `${import.meta.env.BASE_URL}images/luna.jpg`, alt: 'The family dog' },
+  garden: { src: `${import.meta.env.BASE_URL}images/yoga-mock.jpg`, alt: 'Hiking and gardening' },
 }
 
 export default function App() {
@@ -74,8 +74,7 @@ export default function App() {
 </header>
 
       <section className="about">
-        <img className="headshot" src="/images/HEADSHOT.jpg"/>
-
+<img className="headshot" src={`${import.meta.env.BASE_URL}images/HEADSHOT.JPG`}/>
         <p>
           At the Law Office of Jennifer Padnick, you get sophisticated, 
           <strong> experienced real estate representation </strong>— at prices that won't break the bank.
